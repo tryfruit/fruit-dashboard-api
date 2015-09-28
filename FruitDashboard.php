@@ -1,6 +1,7 @@
 <?php
 
 class FruitDashboard {
+    const URL = 'https://dashboard.tryfruit.com';
 
     /**
      * The API key.
@@ -34,7 +35,7 @@ class FruitDashboard {
      * @return string
      */
     private function buildPostUrl($widgetId) {
-        $url = 'https://fd-stg.tryfruit.com';
+        $url = self::URL;
         $url .= '/api/' . $this->apiVersion;
         $url .= '/' . $this->apiKey;
         $url .= '/' . $widgetId;
@@ -42,12 +43,10 @@ class FruitDashboard {
     }
 
     /**
-     * post
      * Sending the request to the API.
-     * --------------------------------------------------
+     *
      * @param string $postData
      * @return response
-     * --------------------------------------------------
     */
     public function post($postData) {
         // Popping widget id from data.
